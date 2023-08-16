@@ -10,7 +10,7 @@
   services.k3s = {
     enable = true;
     role = "agent";
-    serverAddr = "https://leader-1:6443";
+    serverAddr = "https://leader-1.local:6443";
     token = "changeme";
   };
 

@@ -12,17 +12,17 @@
       leader-1 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
-          #./leader.nix
-	  #./pi.nix
-	  #./remote-user.nix
+          ./modules/leader.nix
+	  ./modules/pi.nix
+	  ./modules/remote-user.nix
         ];
       };
       worker-1 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
           ./modules/worker.nix
-	  #./pi.nix
-	  #./remote-user.nix
+	  ./modules/pi.nix
+	  ./modules/remote-user.nix
         ];
       };
     };

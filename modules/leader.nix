@@ -14,7 +14,6 @@
     role = "server";
     token = "changeme";
     clusterInit = true;
-    disableAgent = true;
   };
 
   system.stateVersion = "23.11";

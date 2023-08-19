@@ -19,6 +19,9 @@
         devShell = pkgs.mkShell{ 
           buildInputs = [
             pkgs.gnumake
+            pkgs.terraform
+            pkgs.terraform-lsp
+            pkgs.google-cloud-sdk
           ];
         };
       });

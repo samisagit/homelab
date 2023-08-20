@@ -7,3 +7,12 @@ resource "kubernetes_namespace" "monitoring" {
     name = "monitoring"
   }
 }
+
+module "node_expoerter" {
+  source = "./node-exporter"
+
+  depends_on = [
+    kubernetes_namespace.monitoring
+  ]
+}
+

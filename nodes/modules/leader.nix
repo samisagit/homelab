@@ -1,3 +1,4 @@
+{ token }:
 { pkgs, ... }: {
 
   networking = {
@@ -12,8 +13,9 @@
   services.k3s = {
     enable = true;
     role = "server";
-    token = "changeme";
+    tokenFile = token;
     clusterInit = true;
+    extraFlags = "--node-taint monitor=true:NoSchedule";
   };
 
   system.stateVersion = "23.11";

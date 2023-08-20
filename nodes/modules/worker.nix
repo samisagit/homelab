@@ -1,3 +1,4 @@
+{ token }:
 { pkgs, ... }: {
 
   networking = {
@@ -11,7 +12,7 @@
     enable = true;
     role = "agent";
     serverAddr = "https://leader-1.local:6443";
-    token = "changeme";
+    tokenFile = token;
   };
 
   system.stateVersion = "23.11";

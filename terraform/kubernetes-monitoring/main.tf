@@ -24,3 +24,12 @@ module "prometheus" {
   ]
 }
 
+module "grafana" {
+  source = "./grafana"
+
+  depends_on = [
+    module.node_exporter,
+    module.prometheus
+  ]
+}
+

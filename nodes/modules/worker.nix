@@ -8,6 +8,7 @@
   networking.firewall.allowedTCPPorts = [
     9100 # node-exporter
     8080 # port forward
+    8081 # port forward
   ];
 
   environment.systemPackages = with pkgs; [ vim k3s ];

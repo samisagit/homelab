@@ -16,11 +16,17 @@ module "node_exporter" {
   ]
 }
 
+module "kube_state_metrics" {
+  source = "./kube-state-metrics"
+}
+
+
 module "prometheus" {
   source = "./prometheus"
 
   depends_on = [
-    module.node_exporter
+    module.node_exporter,
+    module.kube_state_metrics
   ]
 }
 
@@ -28,7 +34,6 @@ module "grafana" {
   source = "./grafana"
 
   depends_on = [
-    module.node_exporter,
     module.prometheus
   ]
 }

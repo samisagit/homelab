@@ -7,7 +7,10 @@
 
   environment.systemPackages = with pkgs; [ vim k3s ];
 
-  networking.firewall.allowedTCPPorts = [ 6443 ];
+  networking.firewall.allowedTCPPorts = [
+    6443 # kubectl
+    8080 # port forward
+  ];
 
   services.openssh.enable = true;
   services.k3s = {

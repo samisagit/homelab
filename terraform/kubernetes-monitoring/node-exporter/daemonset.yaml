@@ -49,11 +49,6 @@ spec:
       hostNetwork: true
       hostPID: true
       restartPolicy: Always
-      tolerations:
-      - effect: NoSchedule
-        operator: Exists
-      - effect: NoExecute
-        operator: Exists
       volumes:
       - hostPath:
           path: /proc

@@ -8,11 +8,19 @@ resource "kubernetes_namespace" "monitoring" {
   }
 }
 
-module "node_expoerter" {
+module "node_exporter" {
   source = "./node-exporter"
 
   depends_on = [
     kubernetes_namespace.monitoring
+  ]
+}
+
+module "prometheus" {
+  source = "./prometheus"
+
+  depends_on = [
+    module.node_exporter
   ]
 }
 

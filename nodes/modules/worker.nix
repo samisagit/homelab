@@ -7,7 +7,10 @@
 
   networking.firewall.allowedTCPPorts = [
     9100 # node-exporter
-    8080 # port forward
+
+    30001 # grafana-lb-nodeport
+    8080 # grafana-lb
+
     8081 # port forward
   ];
 

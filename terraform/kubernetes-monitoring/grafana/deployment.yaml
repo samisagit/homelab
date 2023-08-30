@@ -32,7 +32,6 @@ spec:
             name: grafana-storage
           - mountPath: /etc/grafana/provisioning/datasources
             name: grafana-datasources
-              #readOnly: false seems to end up as null when terraformed, perhaps it's the default
       volumes:
         - name: grafana-storage
           emptyDir: {}

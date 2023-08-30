@@ -9,3 +9,11 @@ resource "kubernetes_manifest" "deployment" {
     kubernetes_manifest.config_map
   ]
 }
+
+resource "kubernetes_manifest" "loadbalancer" {
+  manifest = yamldecode(file("${path.module}/service.yaml"))
+
+  depends_on = [
+    kubernetes_manifest.deployment
+  ]
+}

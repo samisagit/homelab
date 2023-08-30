@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [ vim k3s ];
 
   networking.firewall.allowedTCPPorts = [
+    9100 # node-exporter
     6443 # kubectl
     8080 # port forward
   ];

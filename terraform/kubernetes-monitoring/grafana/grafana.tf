@@ -17,3 +17,11 @@ resource "kubernetes_manifest" "loadbalancer" {
     kubernetes_manifest.deployment
   ]
 }
+
+resource "kubernetes_manifest" "ingress" {
+  manifest = yamldecode(file("${path.module}/ingress.yaml"))
+
+  depends_on = [
+    kubernetes_manifest.loadbalancer
+  ]
+}

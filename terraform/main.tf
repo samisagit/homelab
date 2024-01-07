@@ -6,3 +6,7 @@ module "kubernetes-monitoring" {
   source = "./kubernetes-monitoring"
 }
 
+module "home-assistant" {
+  source = "./home-assistant"
+}
+

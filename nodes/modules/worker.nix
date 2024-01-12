@@ -5,14 +5,24 @@
     hostName = "worker-1";
   };
 
-  networking.firewall.allowedTCPPorts = [
-    9100 # node-exporter
+  networking.firewall = {
+    allowedTCPPorts = [
+      9100 # node-exporter
 
-    30001 # grafana-lb-nodeport
-    8080 # grafana-lb
+      30001 # grafana-lb-nodeport
+      8080 # grafana-lb
+      7946 # metallb leader election
+      53   # dns
+      10250 # kubelet metrics
 
-    8081 # port forward
-  ];
+      8081 # port forward
+    ];
+
+    allowedUDPPortRanges = [
+      { from = 7946; to = 7946; } # metallb leader election
+      { from = 8472; to = 8472; } # flannel vxlan
+    ];
+  };
 
   environment.systemPackages = with pkgs; [ vim k3s ];
 

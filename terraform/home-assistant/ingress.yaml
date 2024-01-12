@@ -7,8 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: ha.io
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
@@ -16,4 +15,4 @@ spec:
           service:
             name: home-assistant
             port:
-              number: 4000
+              number: 8123

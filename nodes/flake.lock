@@ -1,5 +1,18 @@
 {
   "nodes": {
+    "key": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1672331112,
+        "narHash": "sha256-QnX01cPYDaCy5EPxG0PqJOec68OdLzzNRW2X1QtWJ7w=",
+        "path": "/home/sam/.ssh/id_rsa.pub",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/sam/.ssh/id_rsa.pub",
+        "type": "path"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1692952286,
@@ -33,6 +46,7 @@
     },
     "root": {
       "inputs": {
+        "key": "key",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "token": "token"

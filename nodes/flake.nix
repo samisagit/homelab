@@ -28,6 +28,7 @@
         modules = [
 	  nixos-hardware.nixosModules.raspberry-pi-4
           (import ./modules/leader.nix {inherit token;})
+	  ./modules/custom-poe.nix
 	  ./modules/pi.nix
 	  (import ./modules/remote-user.nix {inherit key;})
         ];
@@ -37,6 +38,7 @@
         modules = [
 	  nixos-hardware.nixosModules.raspberry-pi-4
           (import ./modules/worker.nix {inherit token;})
+	  ./modules/custom-poe.nix
 	  ./modules/pi.nix
 	  (import ./modules/remote-user.nix {inherit key;})
         ];

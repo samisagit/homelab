@@ -27,7 +27,6 @@
     ];
   };
 
-
   services.openssh.enable = true;
   services.k3s = {
     enable = true;

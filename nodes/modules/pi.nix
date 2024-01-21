@@ -18,6 +18,6 @@
     };
   };
 
-  hardware.raspberry-pi."4".poe-plus-hat.enable = true;
+  hardware.raspberry-pi."4".poe-plus-hat.cenable = true;
   hardware.enableRedistributableFirmware = true;
 }

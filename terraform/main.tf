@@ -14,3 +14,7 @@ module "home-assistant" {
   source = "./home-assistant"
 }
 
+module "pi-hole" {
+  source = "./pi-hole"
+}
+

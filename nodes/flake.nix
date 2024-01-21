@@ -41,6 +41,7 @@
 	  ./modules/custom-poe.nix
 	  ./modules/pi.nix
 	  (import ./modules/remote-user.nix {inherit key;})
+	  ./modules/longhorn.nix
         ];
       };
     };

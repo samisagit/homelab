@@ -27,21 +27,21 @@
         system = "aarch64-linux";
         modules = [
 	  nixos-hardware.nixosModules.raspberry-pi-4
-          (import ./modules/leader.nix {inherit token;})
+          (import ./modules/leader.nix {token = token; host = "leader-1";})
 	  ./modules/custom-poe.nix
 	  ./modules/pi.nix
-	  (import ./modules/remote-user.nix {inherit key;})
+	  (import ./modules/remote-user.nix {key = key;})
         ];
       };
       worker-1 = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
 	  nixos-hardware.nixosModules.raspberry-pi-4
-          (import ./modules/worker.nix {inherit token;})
+          (import ./modules/worker.nix {token = token; host = "worker-1";})
 	  ./modules/custom-poe.nix
 	  ./modules/pi.nix
-	  (import ./modules/remote-user.nix {inherit key;})
-	  ./modules/longhorn.nix
+	  (import ./modules/remote-user.nix {key = key;})
+	  (import ./modules/longhorn.nix {host = "worker-1";})
         ];
       };
     };

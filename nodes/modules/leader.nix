@@ -1,8 +1,8 @@
-{ token }:
+{ token, host }:
 { pkgs, ... }: {
 
   networking = {
-    hostName = "leader-1";
+    hostName = host;
   };
 
   environment.systemPackages = with pkgs; [ vim k3s ];
@@ -19,6 +19,16 @@
       10250 # kubelet metrics
       10259 # kube-scheduler
       10257 # kube-controller-manager
+      9500 # longhorn https://longhorn.io/docs/1.6.0/references/networking/
+      9501 # ''
+      9502 # ''
+      9503 # ''
+      8000 # ''
+      8002 # ''
+      8500 # ''
+      8501 # ''
+      3260 # ''
+      2049 # ''
     ];
 
     allowedUDPPortRanges = [

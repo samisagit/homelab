@@ -37,13 +37,22 @@
     ];
   };
 
+
+  # node role taints can't be set on initialisation, they must be added later
+  # taint node [node name] node-role.kubernetes.io/control-plane=:NoSchedule
+  # taint node [node name] node-role.kubernetes.io/master=:NoSchedule
+
   services.openssh.enable = true;
   services.k3s = {
     enable = true;
     role = "server";
     tokenFile = token;
     clusterInit = true;
-    extraFlags = "--disable=servicelb --disable=traefik --node-taint monitor=true:NoSchedule";
+    extraFlags = ''
+      --disable=servicelb \
+      --disable=traefik \
+      --disable=local-storage
+    '';
   };
 
   system.stateVersion = "23.11";

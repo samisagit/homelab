@@ -14,9 +14,17 @@ spec:
             labels:
                 app: pihole
         spec:
+            automountServiceAccountToken: false
+            dnsPolicy: "None"
+            dnsConfig:
+              nameservers:
+                - 1.1.1.1
+                - 8.8.8.8
             containers:
                 - image: pihole/pihole:2024.01.0
                   imagePullPolicy: IfNotPresent
+                  securityContext:
+                    privileged: true
                   name: pihole
                   ports:
                   - containerPort: 53

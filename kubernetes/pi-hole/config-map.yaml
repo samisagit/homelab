@@ -5,5 +5,3 @@ metadata:
     namespace: pihole
 data:
     TZ: 'Europe/London'
-    DNS1: 1.1.1.1
-    DNS2: 8.8.8.8

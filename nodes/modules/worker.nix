@@ -8,24 +8,9 @@
   networking.firewall = {
     allowedTCPPorts = [
       9100 # node-exporter
-
-      30001 # grafana-lb-nodeport
-      8080 # grafana-lb
       7946 # metallb leader election
       53   # dns
       10250 # kubelet metrics
-      9500 # longhorn https://longhorn.io/docs/1.6.0/references/networking/
-      9501 # ''
-      9502 # ''
-      9503 # ''
-      8000 # ''
-      8002 # ''
-      8500 # ''
-      8501 # ''
-      3260 # ''
-      2049 # ''
-
-      8081 # port forward
     ];
 
     allowedUDPPortRanges = [

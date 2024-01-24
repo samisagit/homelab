@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pihole
+  namespace: pihole
+spec:
+  dnsPolicy: "None"
+  dnsConfig:
+    nameservers:
+      # upstream DNS used by pihole.
+      - 1.1.1.1
+  containers:
+    - name: pihole
+      # https://hub.docker.com/r/pihole/pihole/tags
+      image: pihole/pihole:2024.01.0
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        privileged: true
+      ports:
+        - containerPort: 53
+          name: dnstcp
+          protocol: TCP
+        - containerPort: 53
+          name: dnsudp
+          protocol: UDP
+        - containerPort: 67
+          protocol: UDP
+        - containerPort: 80
+          protocol: TCP
+        - containerPort: 443
+          protocol: TCP
+      volumeMounts:
+        - name: pihole-pvc
+          mountPath: '/etc/pihole'
+        - name: dnsmasq-pvc
+          mountPath: '/etc/dnsmasq.d'
+      resources:
+        requests:
+          memory: 128Mi
+          cpu: 100m
+        limits:
+          memory: 2Gi
+          cpu: 1
+  volumes:
+    - name: pihole-pvc
+      persistentVolumeClaim:
+        claimName: pihole-pvc
+    - name: dnsmasq-pvc
+      persistentVolumeClaim:
+        claimName: dnsmasq-pvc

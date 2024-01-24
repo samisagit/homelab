@@ -1,0 +1,27 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+    name: pihole-pvc
+    namespace: pihole
+    annotations:
+        volume.beta.kubernetes.io/storage-class: 'longhorn'
+spec:
+    accessModes:
+        - ReadWriteMany
+    resources:
+        requests:
+            storage: 1Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+    name: dnsmasq-pvc
+    namespace: pihole
+    annotations:
+        volume.beta.kubernetes.io/storage-class: 'longhorn'
+spec:
+    accessModes:
+        - ReadWriteMany
+    resources:
+        requests:
+            storage: 100Mi

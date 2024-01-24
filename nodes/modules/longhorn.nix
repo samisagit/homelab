@@ -14,4 +14,8 @@
     enable = true;
     name = "iqn.2024–01.uk.co.whiteteam:${host}";
   };
+
+  environment.systemPackages = with pkgs; [
+    nfs-utils
+  ];
 }

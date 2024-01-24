@@ -15,10 +15,12 @@ spec:
         app: node-exporter
     spec:
       tolerations:
-      - key: monitor
-        operator: "Equal"
-        value: "true"
-        effect: "NoSchedule"
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/control-plane
+        operator: Exists
       containers:
       - args:
         - --web.listen-address=0.0.0.0:9100
